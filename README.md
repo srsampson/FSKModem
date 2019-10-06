@@ -17,7 +17,7 @@ In order to run the example, it uses the ```FSKModem.jar``` as a library. Thus, 
 mkdir ~/test/lib
 cp FSKModem.jar ~/test/lib
 cp FSKTest.jar ~/test
-cd test
+cd ~/test
 java -jar FSKTest.jar
 ```
 
