@@ -49,7 +49,7 @@ public class FSKTest implements Defines {
 
         // The codec2 data bytes are 28 bits each. That means 4 LSB bits are 0
 
-        byte[] codecData = new byte[]{
+        byte[] codecData = {
             (byte)0xAA, (byte)0xAA, (byte)0x55, (byte)0xF0,
             (byte)0x55, (byte)0x55, (byte)0xAA, (byte)0xF0
         };
