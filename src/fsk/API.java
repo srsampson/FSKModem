@@ -13,7 +13,7 @@ import codec2.Codec2;
 import framing.Framing;
 import math.Complex;
 
-public final class API {
+public final class API implements Defines {
 
     private final int speech_samples;
     private final int samples_per_codec_frame;
@@ -40,7 +40,7 @@ public final class API {
     }
 
     public void send(double[] fdm, short[] speech_in) {
-        byte[] bits = new byte[Defines.FRAME_BITS];
+        byte[] bits = new byte[FRAME_BITS];
         byte[] codec_bytes = new byte[4];
         byte[] cframe = new byte[8];
         int i, j;
@@ -71,7 +71,7 @@ public final class API {
      * @param signal the complex signal containing Sync and Data Frames
      */
     public void receiveCodecBytes(byte[] codec_bytes, Complex[] signal) {
-        byte[] frame_bits = new byte[Defines.FRAME_BITS];
+        byte[] frame_bits = new byte[FRAME_BITS];
         double[] freqs = new double[4];
 
         demodulator.demodulate(freqs, frame_bits, signal);
@@ -86,7 +86,7 @@ public final class API {
      * @return the number of PCM audio samples (640)
      */
     public int receive(short[] speech_out, Complex[] signal) {
-        byte[] frame_bits = new byte[Defines.FRAME_BITS];
+        byte[] frame_bits = new byte[FRAME_BITS];
         byte[] modem_bytes = new byte[8];
         byte[] codec_bytes = new byte[4];
         double[] freqs = new double[4];
@@ -212,7 +212,7 @@ public final class API {
      * @return an int representing the maximum size of a frame
      */
     public int getMaximumModemSamples() {
-        return Defines.CYCLE_MEMORY;
+        return CYCLE_MEMORY;
     }
 
     /**
@@ -221,6 +221,6 @@ public final class API {
      * @return an int representing the nominal size of a frame
      */
     public int getNominalModemSamples() {
-        return Defines.FRAME_SAMPLES;
+        return FRAME_SAMPLES;
     }
 }

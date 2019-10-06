@@ -91,7 +91,7 @@ public class FSKTest implements Defines {
         byte[] bitpair = new byte[FRAME_BITS];
 
         try {
-            for (int loop = 0; loop < 4; loop++) {  // loop 4 times to give a good quantity of data
+            for (int loop = 0; loop < 10; loop++) {  // loop 10 times to give a good quantity of data
 
                 // Modulate 64 bits and write to a file
                 for (int i = 0; i < FRAME_BITS; i += 2) {
@@ -99,7 +99,7 @@ public class FSKTest implements Defines {
                     // Select a random FSK tone (1 of 4) or 2-bits
                     int temp = rand.nextInt(4);
                     bitpair[i] = (byte)((temp >>> 1) & 0x1); // MSB
-                    bitpair[i + 1] = (byte)(temp & 0x01);    // LSB
+                    bitpair[i + 1] = (byte)(temp & 0x1);     // LSB
                 }
                 
                 mod.modulate(modulation, bitpair);

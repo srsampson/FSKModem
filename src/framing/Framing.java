@@ -8,16 +8,17 @@
  */
 package framing;
 
-public final class Framing {
+import fsk.Defines;
 
-    public static final int FRAME_BITS = 64;
+public final class Framing implements Defines {
+
     public static final int DATA_BITS = 56;
     public static final int SYNC_BITS = 8;
     public static final int CODEC_BITS = 28;
     public static final int CODEC_BYTES = 8;
 
-    private static final byte[] SYNCWORD = new byte[]{0, 1, 1, 0, 0, 1, 1, 1};  // 0x67
-    private static final byte[] DATAWORD = new byte[]{1, 1, 1, 1, 0, 0, 1, 0};  // 0xF2
+    private static final byte[] SYNCWORD = {0, 1, 1, 0, 0, 1, 1, 1};  // 0x67
+    private static final byte[] DATAWORD = {1, 1, 1, 1, 0, 0, 1, 0};  // 0xF2
 
     /*
      * Data Format Definition

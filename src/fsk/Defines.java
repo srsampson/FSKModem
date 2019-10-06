@@ -29,7 +29,7 @@ public interface Defines {
     int EST_MAX = (SAMPLERATE / 2) - SYMBOLRATE;
     int FRAME_SYMBOLS = (SYMBOLS * 2);
     int FRAME_SAMPLES = (FRAME_SYMBOLS * CYCLES);
-    int FRAME_BITS = (FRAME_SYMBOLS * 2);
+    int FRAME_BITS = (FRAME_SYMBOLS * 2);                     // 64
     int CYCLE_MEMORY = (FRAME_SAMPLES + (CYCLES * 2));        // 640 + 40
     //
     double TC = 0.95 * (double) FFTSIZE / (double) SAMPLERATE;// .0608

@@ -22,24 +22,20 @@ public final class Modulator implements Defines {
 
         // Create all the oscillator tones
         
-        for (int i = 0; i < NUMBER_OF_TONES; i++) {
-            oscillator[i] = ComplexMath.cexp(new Complex(0.0, TAU * ((double) (FIRST_TONE
-                    + (TONE_SEPARATION * (double) i)) / (double) SAMPLERATE)));
+        for (int i = 0, tone = FIRST_TONE; i < NUMBER_OF_TONES; i++, tone += TONE_SEPARATION) {
+            oscillator[i] = ComplexMath.cexp(new Complex(0.0, TAU * ((double) tone / (double) SAMPLERATE)));
         }
     }
 
     public void modulate(double[] baseband, byte[] bits) {
-        int i, j, tone;
-        
         int index = 0;
 
-        for (i = 0; i < FRAME_BITS; i += 2) {
-            tone = (bits[i] << 1 | bits[i + 1]) & 0x3;
+        for (int i = 0; i < FRAME_BITS; i += 2) {
+            int tone = (int)((bits[i] << 1 | bits[i + 1])) & 0x3;
             Complex dph = oscillator[tone];
 
-            // Fill the output signal based on the
-            // tone selected for this cycle
-            for (j = 0; j < CYCLES; j++) {
+            // Output signal based on the tone selected
+            for (int j = 0; j < CYCLES; j++) {
                 phase = ComplexMath.times(phase, dph);
                 baseband[index + j] = phase.getReal();
             }
