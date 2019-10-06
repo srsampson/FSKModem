@@ -20,7 +20,3 @@ cp FSKTest.jar ~/test
 cd ~/test
 java -jar FSKTest.jar
 ```
-
-##### Signal Resampling
-One thing to note, is that with the highest modulation frequency of 2000 Hz, and a sample rate of 8000 Hz, you are only going to get 4 samples. If you look at that on Audacity, it will look much like a triangle wave. Thus, it is obvious you need to interpolate before sending this to a transmitter. A suggested resample rate is 48000 which all sound cards work well at.
-
