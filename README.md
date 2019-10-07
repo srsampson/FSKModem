@@ -20,3 +20,4 @@ cp FSKTest.jar ~/test
 cd ~/test
 java -jar FSKTest.jar
 ```
+[![Analytics](https://ga-beacon.appspot.com/UA-149526235-1/welcome-page?pixel)](https://github.com/igrigorik/ga-beacon)
