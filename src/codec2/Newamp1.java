@@ -423,7 +423,6 @@ public final class Newamp1 {
 
     private void interp_Wo_v(double[] Wo_, int[] L_, boolean[] voicing_, double Wo1,
             double Wo2, boolean voicing1, boolean voicing2) {
-        double c;
         int i;
 
         // interpolation rate
@@ -450,6 +449,8 @@ public final class Newamp1 {
         }
 
         if (voicing1 && voicing2) {
+            double c;
+            
             for (i = 0, c = 1.0; i < 4; i++, c -= 1.0 / 4.0) {
                 Wo_[i] = Wo1 * c + Wo2 * (1.0 - c);
                 voicing_[i] = true;
@@ -512,7 +513,7 @@ public final class Newamp1 {
 
         for (i = 1; i <= model.getL(); i++) {
             int temp = (int) Math.floor(0.5 + i * model.getWo() * NEWAMP1_PHASE_NFFT / TAU);
-            H[index][i] = new Complex(Math.cos(phase[temp]), Math.sin(phase[temp]));
+            H[index][i] = ComplexMath.cexp(new Complex(0.0, phase[temp]));
         }
     }
 
