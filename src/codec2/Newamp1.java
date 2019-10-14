@@ -17,10 +17,6 @@ import static codec2.Codec2.P_MAX;
 import static codec2.Codec2.P_MIN;
 import static codec2.Codec2.TAU;
 
-import math.Complex;
-import math.ComplexMath;
-import math.FFT;
-
 public final class Newamp1 {
 
     private static final int MBEST_ENTRIES = 5;

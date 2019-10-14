@@ -8,9 +8,6 @@
  */
 package codec2;
 
-import math.Complex;
-import math.FFT;
-
 public final class Codec2 {
     public static final double TAU = (Math.PI * 2.0);
     //

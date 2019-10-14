@@ -12,9 +12,6 @@ import static codec2.Codec2.N_SAMP;
 import static codec2.Codec2.TAU;
 import java.util.Random;
 
-import math.Complex;
-import math.ComplexMath;
-
 public final class Model {
 
     private final static double BG_THRESH_DB = 40.0;    // only consider low levels signals for bg_est
@@ -45,6 +42,7 @@ public final class Model {
     public void reset() {
         for (int i = 0; i <= MAX_HARMONIC; i++) {
             A[i] = 0.0;
+            phi[i] = 0.0;
         }
     }
 
@@ -138,7 +136,7 @@ public final class Model {
              * generate excitation
              */
             if (voiced == true) {
-                Ex = ComplexMath.cexp(new Complex(0.0, (ex_phase[0] * (double) m)));
+                Ex = ComplexMath.cexp(new Complex(0.0, ex_phase[0] * (double) m));
             } else {
                 /*
                  * When a few samples were tested I found that LPC filter

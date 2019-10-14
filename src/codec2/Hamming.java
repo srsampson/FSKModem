@@ -13,9 +13,6 @@ import static codec2.Codec2.M_PITCH;
 import static codec2.Codec2.NW;
 import static codec2.Codec2.TAU;
 
-import math.Complex;
-import math.FFT;
-
 /*
  * This whole class should be garbage collected after run,
  * since it will never be used again
@@ -24,7 +21,7 @@ public final class Hamming {
 
     private final FFT fft;
     //
-    private Complex[] W;
+    private final Complex[] W;
     
     public Hamming(FFT fftencode, double[] hamming, double[] w) {
         int i, j;

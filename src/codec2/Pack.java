@@ -20,7 +20,7 @@ public final class Pack {
         bitOffset = 0;
     }
 
-    protected void pack(byte[] bitArray, int value, int valueBits) {
+    public void pack(byte[] bitArray, int value, int valueBits) {
         do {
             int bI = bitOffset;
             int bitsLeft = 8 - (bI & 0x7);
@@ -34,7 +34,7 @@ public final class Pack {
         } while (valueBits != 0);
     }
 
-    protected int unpack(byte[] bitArray, int valueBits) {
+    public int unpack(byte[] bitArray, int valueBits) {
         int field = 0;
 
         do {

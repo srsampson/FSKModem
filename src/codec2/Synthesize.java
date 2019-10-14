@@ -12,10 +12,6 @@ import static codec2.Codec2.FFT_SIZE;
 import static codec2.Codec2.N_SAMP;
 import static codec2.Codec2.TAU;
 
-import math.Complex;
-import math.ComplexMath;
-import math.FFT;
-
 public final class Synthesize {
 
     private final FFT fft;
